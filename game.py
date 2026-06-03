@@ -13,6 +13,7 @@ print(
 ===================================
 """
 )
+win_combos={(1,2)(2,3)(3,1)}#(玩家，电脑)玩家赢
 while True:
     player_choice=int(input("请选择你的操作（1-4）："))
     if player_choice not in range(1,5):
@@ -33,17 +34,10 @@ while True:
     if player_choice == computer_choice:
         print("平局！")
         ties+=1
-    elif player_choice==1 and computer_choice==2:
-        print("恭喜你赢了！")
-        player_wins+=1
-    elif player_choice==2 and computer_choice==3:
-        print("恭喜你赢了！")
-        player_wins+=1
-    elif player_choice==3 and computer_choice==1:
+    elif (player_choice,computer_choice) in win_combos:
         print("你赢了！")
         player_wins+=1
     else:
         print("电脑赢了！")
         computer_wins+=1
         
-    
